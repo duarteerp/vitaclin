@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/drika/Downloads/clinica_saude.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitaClin — Clínica de Saúde Integrada</title>
+  <link href="./VitaClin — Clínica de Saúde Integrada_files/css2" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde: #0B6E4F;
+      --verde-claro: #16A973;
+      --verde-menta: #D4F0E5;
+      --creme: #F9F5EE;
+      --creme-escuro: #EDE8DC;
+      --terracota: #C4694A;
+      --texto: #1A1A1A;
+      --texto-suave: #555;
+      --branco: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--creme);
+      color: var(--texto);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 6%;
+      background: rgba(249,245,238,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(11,110,79,0.1);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: var(--verde);
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--terracota); }
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+    nav ul a {
+      text-decoration: none; color: var(--texto-suave);
+      font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--verde); }
+    .btn-nav {
+      background: var(--verde); color: var(--branco);
+      border: none; padding: 0.65rem 1.5rem;
+      border-radius: 30px; font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; font-weight: 500; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+    }
+    .btn-nav:hover { background: var(--verde-claro); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; padding: 0 6%;
+      padding-top: 80px;
+      gap: 4rem;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.15; color: var(--texto);
+      margin-bottom: 1.5rem;
+    }
+    .hero-text h1 em {
+      font-style: italic; color: var(--verde);
+    }
+    .hero-text p {
+      font-size: 1.1rem; line-height: 1.75;
+      color: var(--texto-suave); max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--verde); color: var(--branco);
+      padding: 1rem 2rem; border-radius: 30px;
+      text-decoration: none; font-weight: 600;
+      font-size: 1rem; transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--verde-claro); transform: translateY(-2px); }
+    .btn-outline {
+      border: 2px solid var(--verde); color: var(--verde);
+      padding: 0.9rem 2rem; border-radius: 30px;
+      text-decoration: none; font-weight: 600;
+      font-size: 1rem; transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--verde-menta); }
+
+    .hero-image {
+      position: relative; border-radius: 40px 40px 40px 0;
+      overflow: hidden; aspect-ratio: 4/5;
+    }
+    .hero-image img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-badge {
+      position: absolute; bottom: 2rem; left: -1.5rem;
+      background: var(--branco); border-radius: 16px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .badge-icon {
+      width: 48px; height: 48px; background: var(--verde-menta);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+    .badge-text strong { display: block; font-size: 1.1rem; color: var(--verde); }
+    .badge-text span { font-size: 0.8rem; color: var(--texto-suave); }
+
+    /* STATS */
+    .stats {
+      background: var(--verde);
+      padding: 4rem 6%;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2rem; text-align: center;
+    }
+    .stat-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem; color: var(--branco); font-weight: 700;
+    }
+    .stat-item p { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-top: 0.3rem; }
+
+    /* SECTION BASE */
+    section { padding: 6rem 6%; }
+    .section-label {
+      display: inline-block;
+      background: var(--verde-menta); color: var(--verde);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.4rem 1rem;
+      border-radius: 30px; margin-bottom: 1.2rem;
+    }
+    h2.section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.2; margin-bottom: 1.5rem;
+    }
+    .text-verde { color: var(--verde); }
+
+    /* SERVIÇOS */
+    #servicos { background: var(--branco); }
+    .servicos-intro { max-width: 560px; margin-bottom: 3.5rem; }
+    .servicos-intro p { color: var(--texto-suave); line-height: 1.75; }
+    .servicos-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .servico-card {
+      background: var(--creme); border-radius: 20px;
+      padding: 2rem; transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid transparent;
+    }
+    .servico-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(11,110,79,0.1);
+      border-color: var(--verde-menta);
+    }
+    .servico-icon {
+      width: 56px; height: 56px; background: var(--verde-menta);
+      border-radius: 16px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.6rem; margin-bottom: 1.2rem;
+    }
+    .servico-card h3 {
+      font-size: 1.1rem; font-weight: 600; margin-bottom: 0.7rem;
+    }
+    .servico-card p { color: var(--texto-suave); font-size: 0.95rem; line-height: 1.65; }
+
+    /* SOBRE / IMAGEM */
+    #sobre {
+      background: var(--creme-escuro);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .sobre-image {
+      border-radius: 24px; overflow: hidden;
+      aspect-ratio: 1; position: relative;
+    }
+    .sobre-image img { width: 100%; height: 100%; object-fit: cover; }
+    .sobre-tag {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: var(--terracota); color: var(--branco);
+      border-radius: 12px; padding: 0.8rem 1.2rem;
+      font-weight: 600; font-size: 0.85rem; text-align: center;
+    }
+    .sobre-text ul {
+      list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;
+    }
+    .sobre-text ul li {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      font-size: 0.95rem; color: var(--texto-suave); line-height: 1.6;
+    }
+    .check {
+      width: 22px; height: 22px; background: var(--verde); color: white;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; flex-shrink: 0; margin-top: 0.1rem;
+    }
+
+    /* EQUIPE */
+    #equipe { background: var(--branco); }
+    .equipe-intro { max-width: 560px; margin-bottom: 3.5rem; }
+    .equipe-intro p { color: var(--texto-suave); line-height: 1.75; }
+    .equipe-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .membro-card {
+      text-align: center; transition: transform 0.25s;
+    }
+    .membro-card:hover { transform: translateY(-5px); }
+    .membro-foto {
+      width: 160px; height: 160px; border-radius: 50%;
+      object-fit: cover; margin: 0 auto 1.2rem;
+      border: 4px solid var(--verde-menta);
+      display: block;
+    }
+    .membro-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .membro-card .cargo {
+      color: var(--verde); font-size: 0.85rem; font-weight: 500; margin-bottom: 0.5rem;
+    }
+    .membro-card p { color: var(--texto-suave); font-size: 0.88rem; line-height: 1.6; }
+
+    /* CONTATO */
+    #contato { background: var(--verde); }
+    #contato .section-label { background: rgba(255,255,255,0.15); color: white; }
+    #contato h2.section-title { color: var(--branco); }
+    .contato-sub { color: rgba(255,255,255,0.75); margin-bottom: 3rem; max-width: 500px; line-height: 1.7; }
+    .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block; font-size: 0.85rem; font-weight: 500;
+      color: rgba(255,255,255,0.8); margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%; padding: 0.85rem 1rem;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 10px; background: rgba(255,255,255,0.1);
+      color: var(--branco); font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input::placeholder { color: rgba(255,255,255,0.4); }
+    .form-group input:focus,
+    .form-group select:focus { border-color: rgba(255,255,255,0.6); }
+    .form-group select option { background: var(--verde); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .btn-form {
+      width: 100%; padding: 1rem;
+      background: var(--branco); color: var(--verde);
+      border: none; border-radius: 10px; font-weight: 700;
+      font-size: 1rem; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s; margin-top: 0.5rem;
+    }
+    .btn-form:hover { background: var(--creme); transform: translateY(-1px); }
+
+    .contato-info { color: rgba(255,255,255,0.85); }
+    .contato-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: white; margin-bottom: 1.5rem;
+    }
+    .info-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .info-icon {
+      width: 44px; height: 44px; background: rgba(255,255,255,0.15);
+      border-radius: 12px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+    }
+    .info-item strong { display: block; color: white; font-size: 0.95rem; }
+    .info-item span { color: rgba(255,255,255,0.65); font-size: 0.88rem; }
+
+    /* RODAPÉ */
+    footer {
+      background: #0A1A14;
+      padding: 3rem 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    footer .logo { font-size: 1.4rem; }
+    footer p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+    footer nav ul { gap: 2rem; }
+    footer nav ul a { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    footer nav ul a:hover { color: white; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; padding-top: 100px; }
+      .hero-image { display: none; }
+      #sobre { grid-template-columns: 1fr; padding: 4rem 5%; }
+      .contato-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      nav ul { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGAÇÃO -->
+  <nav>
+    <div class="logo">Vita<span>Clin</span></div>
+    <ul>
+      <li><a href="file:///C:/Users/drika/Downloads/clinica_saude.html#servicos">Serviços</a></li>
+      <li><a href="file:///C:/Users/drika/Downloads/clinica_saude.html#sobre">Sobre</a></li>
+      <li><a href="file:///C:/Users/drika/Downloads/clinica_saude.html#equipe">Equipe</a></li>
+      <li><a href="file:///C:/Users/drika/Downloads/clinica_saude.html#contato">Contato</a></li>
+    </ul>
+    <a href="file:///C:/Users/drika/Downloads/clinica_saude.html#contato" class="btn-nav">Agendar consulta</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="section-label">Saúde &amp; Bem-estar</div>
+      <h1>Cuidando da sua<br><em>saúde com</em><br>excelência</h1>
+      <p>A VitaClin reúne os melhores profissionais da saúde para oferecer atendimento humanizado, tecnologia de ponta e resultados que transformam vidas.</p>
+      <div class="hero-btns">
+        <a href="file:///C:/Users/drika/Downloads/clinica_saude.html#contato" class="btn-primary">Agendar consulta</a>
+        <a href="file:///C:/Users/drika/Downloads/clinica_saude.html#servicos" class="btn-outline">Ver serviços</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <!-- Imagem 1: consultório médico -->
+      <img src="./VitaClin — Clínica de Saúde Integrada_files/photo-1576091160550-2173dba999ef" alt="Consultório médico moderno da VitaClin">
+      <div class="hero-badge">
+        <div class="badge-icon">🏆</div>
+        <div class="badge-text">
+          <strong>+12 anos</strong>
+          <span>de excelência em saúde</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-item">
+      <h3>18.000+</h3>
+      <p>Pacientes atendidos</p>
+    </div>
+    <div class="stat-item">
+      <h3>25+</h3>
+      <p>Especialidades médicas</p>
+    </div>
+    <div class="stat-item">
+      <h3>98%</h3>
+      <p>Satisfação dos pacientes</p>
+    </div>
+    <div class="stat-item">
+      <h3>12</h3>
+      <p>Anos no mercado</p>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="servicos-intro">
+      <div class="section-label">O que oferecemos</div>
+      <h2 class="section-title">Serviços <span class="text-verde">completos</span> para sua saúde</h2>
+      <p>Reunimos em um único local todas as especialidades e exames que você precisa, com agendamento rápido e atendimento de qualidade.</p>
+    </div>
+
+    <div class="servicos-grid">
+      <div class="servico-card">
+        <div class="servico-icon">👨‍⚕️</div>
+        <h3>Atendimento Médico</h3>
+        <p>Consultas com especialistas em clínica geral, cardiologia, ortopedia, dermatologia, pediatria e mais de 20 especialidades.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">🧪</div>
+        <h3>Exames Laboratoriais</h3>
+        <p>Laboratório próprio com resultados rápidos: hemograma, bioquímica, hormônios, sorologias e painéis completos de saúde.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">🩻</div>
+        <h3>Exames de Imagem</h3>
+        <p>Ultrassonografia, radiografia digital, ecocardiograma e densitometria óssea com equipamentos de última geração.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">🥗</div>
+        <h3>Aconselhamento Nutricional</h3>
+        <p>Planos alimentares personalizados com nutricionistas especializados em emagrecimento, performance e doenças crônicas.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">🧘</div>
+        <h3>Saúde Mental</h3>
+        <p>Psicologia e psiquiatria com abordagem integrativa para ansiedade, depressão, burnout e qualidade de vida.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">💊</div>
+        <h3>Check-up Preventivo</h3>
+        <p>Pacotes de check-up completo com avaliação multidisciplinar, rastreamento de doenças e relatório personalizado de saúde.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="sobre-image">
+      <!-- Imagem 2: equipe de saúde -->
+      <img src="./VitaClin — Clínica de Saúde Integrada_files/photo-1551190822-a9333d879b1f" alt="Equipe médica da VitaClin reunida">
+      <div class="sobre-tag">Desde 2013<br>✔ Acreditada</div>
+    </div>
+
+    <div class="sobre-text">
+      <div class="section-label">Nossa missão</div>
+      <h2 class="section-title">Por que escolher a <span class="text-verde">VitaClin?</span></h2>
+      <p style="color: var(--texto-suave); line-height: 1.75; margin-bottom: 0.5rem;">
+        Somos uma clínica multidisciplinar que acredita que saúde é muito mais do que ausência de doença. É equilíbrio, prevenção e qualidade de vida.
+      </p>
+      <ul>
+        <li>
+          <div class="check">✓</div>
+          <span><strong>Atendimento humanizado:</strong> cada paciente é tratado como único, com escuta ativa e cuidado personalizado.</span>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <span><strong>Tecnologia avançada:</strong> equipamentos de última geração para diagnósticos mais precisos e seguros.</span>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <span><strong>Integração entre especialidades:</strong> prontuário eletrônico compartilhado para um cuidado 360° do paciente.</span>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <span><strong>Acessibilidade:</strong> planos de saúde, pagamento facilitado e telemedicina disponível.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EQUIPE -->
+  <section id="equipe">
+    <div class="equipe-intro">
+      <div class="section-label">Nossa equipe</div>
+      <h2 class="section-title">Profissionais <span class="text-verde">dedicados</span> a você</h2>
+      <p>Contamos com uma equipe multidisciplinar de especialistas comprometidos com a sua saúde e bem-estar.</p>
+    </div>
+
+    <div class="equipe-grid">
+      <div class="membro-card">
+        <img class="membro-foto" src="./VitaClin — Clínica de Saúde Integrada_files/photo-1559839734-2b71ea197ec2" alt="Dra. Camila Rocha — Clínica Geral">
+        <h3>Dra. Camila Rocha</h3>
+        <div class="cargo">Clínica Geral · CRM 54.321</div>
+        <p>Especialista em medicina preventiva e check-up, com 10 anos de experiência em atenção primária à saúde.</p>
+      </div>
+
+      <div class="membro-card">
+        <img class="membro-foto" src="./VitaClin — Clínica de Saúde Integrada_files/photo-1612349317150-e413f6a5b16d" alt="Dr. Rafael Mendes — Cardiologista">
+        <h3>Dr. Rafael Mendes</h3>
+        <div class="cargo">Cardiologista · CRM 67.890</div>
+        <p>Doutorado em cardiologia intervencionista. Referência no tratamento de doenças cardiovasculares e hipertensão.</p>
+      </div>
+
+      <div class="membro-card">
+        <img class="membro-foto" src="./VitaClin — Clínica de Saúde Integrada_files/photo-1594824476967-48c8b964273f" alt="Dra. Juliana Costa — Nutricionista">
+        <h3>Dra. Juliana Costa</h3>
+        <div class="cargo">Nutricionista · CRN 12.456</div>
+        <p>Especialista em nutrição esportiva e clínica, com foco em emagrecimento saudável e controle de doenças crônicas.</p>
+      </div>
+
+      <div class="membro-card">
+        <img class="membro-foto" src="./VitaClin — Clínica de Saúde Integrada_files/photo-1582750433449-648ed127bb54" alt="Dr. André Lima — Psiquiatra">
+        <h3>Dr. André Lima</h3>
+        <div class="cargo">Psiquiatra · CRM 78.901</div>
+        <p>Especializado em saúde mental, transtornos de ansiedade e depressão, com abordagem integrativa e humanizada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO / FORMULÁRIO -->
+  <section id="contato">
+    <div class="section-label">Fale conosco</div>
+    <h2 class="section-title">Agende sua consulta</h2>
+    <p class="contato-sub">Preencha o formulário abaixo e nossa equipe entrará em contato para confirmar seu agendamento.</p>
+
+    <div class="contato-grid">
+      <form>
+        <div class="form-group">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome completo">
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" name="cidade" placeholder="Sua cidade">
+          </div>
+          <div class="form-group">
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado">
+              <option value="">Selecione</option>
+              <option>AC</option><option>AL</option><option>AP</option>
+              <option>AM</option><option>BA</option><option>CE</option>
+              <option>DF</option><option>ES</option><option>GO</option>
+              <option>MA</option><option>MT</option><option>MS</option>
+              <option>MG</option><option>PA</option><option>PB</option>
+              <option>PR</option><option>PE</option><option>PI</option>
+              <option>RJ</option><option>RN</option><option>RS</option>
+              <option>RO</option><option>RR</option><option>SC</option>
+              <option>SP</option><option>SE</option><option>TO</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-form">Enviar solicitação</button>
+      </form>
+
+      <div class="contato-info">
+        <h3>Informações de contato</h3>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div>
+            <strong>Endereço</strong>
+            <span>Av. das Palmeiras, 1.500 — Sala 201<br>Setor Bueno, Goiânia — GO</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div>
+            <strong>Telefone / WhatsApp</strong>
+            <span>(62) 3000-1234<br>(62) 98765-4321</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div>
+            <strong>Horário de funcionamento</strong>
+            <span>Segunda a Sexta: 07h às 19h<br>Sábado: 08h às 13h</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div>
+            <strong>E-mail</strong>
+            <span>contato@vitaclin.com.br</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="logo" style="color: white;">Vita<span>Clin</span></div>
+    <p>© 2025 VitaClin — Todos os direitos reservados.</p>
+    <nav>
+      <ul>
+        <li><a href="file:///C:/Users/drika/Downloads/clinica_saude.html#servicos">Serviços</a></li>
+        <li><a href="file:///C:/Users/drika/Downloads/clinica_saude.html#equipe">Equipe</a></li>
+        <li><a href="file:///C:/Users/drika/Downloads/clinica_saude.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+
+
+</body></html>
